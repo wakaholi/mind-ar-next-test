@@ -1,14 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import MindARThreeViewer from "@/components/MindARThreeViewer";
 import { useState } from "react";
+import MindARViewer from "@/components/MindARViewer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [startAR, setStartAR] = useState(false);
+  const [startThreeAR, setStartThreeAR] = useState(false);
+  const [startAFrameAR, setStartAFrameAR] = useState(false);
   return (
     <>
       <Head>
@@ -20,12 +21,20 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <button
           onClick={() => {
-            setStartAR(true);
+            setStartThreeAR(true);
           }}
         >
-          ARスタート！
+          ThreeARスタート！
         </button>
-        {startAR && <MindARThreeViewer />}
+        <button
+          onClick={() => {
+            setStartAFrameAR(true);
+          }}
+        >
+          AFrameARスタート！
+        </button>
+        {startThreeAR && <MindARThreeViewer />}
+        {startAFrameAR && <MindARViewer />}
       </main>
     </>
   );

@@ -12,6 +12,7 @@ function MindARThreeViewer() {
         const mindarThree = new module.MindARThree({
           container: containerRef.current,
           imageTargetSrc: "./meishi.mind",
+          maxTrack: 3,
         });
         const { renderer, scene, camera } = mindarThree;
         const anchor = mindarThree.addAnchor(0);
